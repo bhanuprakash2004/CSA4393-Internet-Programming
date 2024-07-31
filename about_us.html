@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('./image.jpg') no-repeat center center fixed; /* Ensure the image path is correct */
+            background-color: #1c89e1;
+        }
+        header {
+            width: 100%;
+            background-color: #89f8f4;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        .signout-button {
+            background-color: #d3e73c;
+            color: rgb(217, 95, 28);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 15px;
+        }
+
+        .signout-button:hover {
+            background-color: #c0392b;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #d844e6;
+            background-color: #2c3e50;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background-color: #1a252f;
+        }
+        .about-container {
+            margin: 20px;
+            text-align: center;
+        }
+        .about-container h1 {
+            margin-bottom: 30px;
+        }
+        .about-container p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+    </style>
+    <title>Student Portal - About Us</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="courses.html">Courses</a>
+            <a href="registered_courses.html">Registered Courses</a>
+            <a href="grades.html">Grades</a>
+            <a href="resources.html">Resources</a>
+            <a href="contact.html">Contact</a>
+            <a href="about_us.html">About</a>
+            <button class="signout-button" onclick="window.location.href='login.html';">Sign Out</button>
+        </nav>
+    </header>
+    <div class="about-container">
+        <h1>About Us</h1>
+        <p>Welcome to our Student Portal. We are dedicated to providing students with the best educational resources and support. Our platform offers a variety of courses, access to essential study materials, and a space to track your grades and progress.</p>
+        <p>Our team of experienced educators and professionals works hard to ensure that our resources are up-to-date and relevant. We believe in fostering a learning environment that is both engaging and informative.</p>
+        <p>If you have any questions or need assistance, please don't hesitate to contact us through our contact page.</p>
+    </div>
+</body>
+</html>

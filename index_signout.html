@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            width: 100%;
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #2c3e50;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background-color: #1a252f;
+        }
+        .signout-button {
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+        .signout-button:hover {
+            background-color: #c0392b;
+        }
+        .content-container {
+            margin: 20px;
+            text-align: center;
+        }
+        .content-container h1 {
+            margin-bottom: 30px;
+        }
+    </style>
+    <title>Student Portal - Home</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="courses.html">Courses</a>
+            <a href="grades.html">Grades</a>
+            <a href="resources.html">Resources</a>
+            <a href="contact.html">Contact</a>
+            <a href="about.html">About</a>
+            <button class="signout-button" onclick="window.location.href='login.html';">Sign Out</button>
+        </nav>
+    </header>
+    <div class="content-container">
+        <h1>Welcome to the Student Portal</h1>
+        <p>This is the home page. Use the navigation links above to access different sections of the portal.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registered Courses - Student Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('./image.jpg') no-repeat center center fixed; /* Ensure the image path is correct */
+            background-color: #25a737;
+        }
+
+        header {
+            background-color: #333;
+            color: rgb(43, 230, 77);
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav {
+            margin: 10px 0;
+        }
+
+        nav a {
+            margin: 0 15px;
+            color: rgb(175, 41, 196);
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .signout-button {
+            background-color: #d3e73c;
+            color: rgb(217, 95, 28);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 15px;
+        }
+
+        .signout-button:hover {
+            background-color: #c0392b;
+        }
+
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container h1 {
+            margin-bottom: 20px;
+        }
+
+        .container p {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .courses-container {
+            text-align: left;
+            margin: 20px auto;
+            max-width: 800px;
+            background-color: #cf85c0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .course-item {
+            background-color: #77ccf3;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .course-item h2 {
+            margin: 0 0 10px 0;
+        }
+        
+        .signout-button:hover {
+            background-color: #c0392b;
+        }
+        .course-item p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="courses.html">Courses</a>
+            <a href="registered_courses.html">Registered Courses</a>
+            <a href="grades.html">Grades</a>
+            <a href="resources.html">Resources</a>
+            <a href="contact.html">Contact</a>
+            <a href="about_us.html">About</a>
+            <button class="signout-button" onclick="window.location.href='login.html';">Sign Out</button>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Your Registered Courses</h1>
+        <div class="courses-container" id="registeredCoursesContainer">
+            <!-- Registered courses will be dynamically added here -->
+        </div>
+    </div>
+    <script>
+        const courses = [
+            {
+                id: 1,
+                title: 'Introduction to Computer Science',
+                description: 'Learn the basics of computer science and programming.',
+                instructor: 'Dr. Alice Smith',
+                duration: '12 weeks'
+            },
+            {
+                id: 2,
+                title: 'Advanced Web Development',
+                description: 'Dive into advanced topics in web development and design.',
+                instructor: 'Dr. John Doe',
+                duration: '8 weeks'
+            },
+            {
+                id: 3,
+                title: 'Data Science Fundamentals',
+                description: 'Understand the principles of data science and analysis.',
+                instructor: 'Dr. Emily Johnson',
+                duration: '10 weeks'
+            },
+            // Add more courses as needed
+        ];
+
+        function renderRegisteredCourses() {
+            const registeredCoursesContainer = document.getElementById('registeredCoursesContainer');
+            const registeredCourses = JSON.parse(localStorage.getItem('registeredCourses')) || [];
+            if (registeredCourses.length === 0) {
+                registeredCoursesContainer.innerHTML = '<p>You have not registered for any courses yet.</p>';
+            } else {
+                registeredCourses.forEach(courseId => {
+                    const course = courses.find(c => c.id === courseId);
+                    if (course) {
+                        const courseItem = document.createElement('div');
+                        courseItem.className = 'course-item';
+                        courseItem.innerHTML = `
+                            <h2>${course.title}</h2>
+                            <p><strong>Description:</strong> ${course.description}</p>
+                            <p><strong>Instructor:</strong> ${course.instructor}</p>
+                            <p><strong>Duration:</strong> ${course.duration}</p>
+                        `;
+                        registeredCoursesContainer.appendChild(courseItem);
+                    }
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', renderRegisteredCourses);
+    </script>
+</body>
+</html>

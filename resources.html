@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('./image.jpg') no-repeat center center fixed; /* Ensure the image path is correct */
+            background-color: #eae9ea;
+        }
+        header {
+            width: 100%;
+            background-color: #2c3e50;
+            color: rgb(196, 55, 218);
+            padding: 15px 0;
+            text-align: center;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #b22dbc;
+            background-color: #2c3e50;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background-color: #1a252f;
+        }
+        .content-container {
+            margin: 20px;
+            text-align: center;
+        }
+        .content-container h1 {
+            margin-bottom: 30px;
+        }
+        .resources-list {
+            list-style: none;
+            padding: 0;
+        }
+        .resources-list li {
+            background-color: rgb(246, 247, 172);
+            margin: 10px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            text-align: left;
+        }
+        .signout-button {
+            background-color: #d3e73c;
+            color: rgb(217, 95, 28);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 15px;
+        }
+
+        .signout-button:hover {
+            background-color: #c0392b;
+        }
+        .resources-list h3 {
+            margin-top: 0;
+        }
+        .resources-list a {
+            color: #2c3e50;
+            text-decoration: none;
+        }
+        .resources-list a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <title>Student Portal - Resources</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <<a href="index.html">Home</a>
+            <a href="courses.html">Courses</a>
+            <a href="registered_courses.html">Registered Courses</a>
+            <a href="grades.html">Grades</a>
+            <a href="resources.html">Resources</a>
+            <a href="contact.html">Contact</a>
+            <a href="about_us.html">About</a>
+            <button class="signout-button" onclick="window.location.href='login.html';">Sign Out</button>
+        </nav>
+    </header>
+    <div class="content-container">
+        <h1>Resources</h1>
+        <ul class="resources-list">
+            <!-- Course Material -->
+            <li>
+                <h3>Course Material: Introduction to Computer Science</h3>
+                <p>Download the complete set of course materials for "Introduction to Computer Science". This includes lecture notes, assignments, and other supplementary resources.</p>
+                <a href="resources/course_material_intro_cs.pdf" download>Download Course Material</a>
+            </li>
+            <!-- Lecture Slides -->
+            <li>
+                <h3>Lecture Slides: Advanced Web Development</h3>
+                <p>Access the lecture slides for the Advanced Web Development course. These slides cover key concepts and practices discussed in the lectures.</p>
+                <a href="resources/lecture_slides_advanced_web_dev.pdf" download>Download Lecture Slides</a>
+            </li>
+            <!-- Recommended Books -->
+            <li>
+                <h3>Recommended Books for Data Science</h3>
+                <p>Explore the list of recommended books for learning Data Science. These books provide in-depth knowledge and are essential for understanding data analysis and machine learning.</p>
+                <a href="resources/recommended_books_data_science.pdf" download>Download Recommended Books List</a>
+            </li>
+            <!-- Study Guides -->
+            <li>
+                <h3>Study Guides: Data Science Fundamentals</h3>
+                <p>Get the study guides for the Data Science Fundamentals course. These guides include summaries, key points, and practice questions to help you prepare for exams.</p>
+                <a href="resources/study_guides_data_science.pdf" download>Download Study Guides</a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

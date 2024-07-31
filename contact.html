@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('./image.jpg') no-repeat center center fixed; /* Ensure the image path is correct */
+            background-color: #07768f;
+        }
+        header {
+            width: 100%;
+            background-color: #2c3e50;
+            color: rgb(131, 171, 44);
+            padding: 15px 0;
+            text-align: center;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #bb4ad1;
+            background-color: #2c3e50;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background-color: #e645c0;
+        }
+        .contact-container {
+            margin: 20px;
+            text-align: center;
+        }
+        .contact-container h1 {
+            margin-bottom: 30px;
+        }
+        .contact-container form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .contact-container label {
+            margin-bottom: 5px;
+        }
+        .contact-container input[type="text"],
+        .contact-container input[type="email"],
+        .contact-container textarea {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #367ba1;
+            border-radius: 4px;
+        }
+        .contact-container textarea {
+            resize: vertical;
+            height: 150px;
+        }
+        .signout-button {
+            background-color: #d3e73c;
+            color: rgb(217, 95, 28);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 15px;
+        }
+
+        .signout-button:hover {
+            background-color: #c0392b;
+        }
+        .contact-container input[type="submit"] {
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #8dc0f3;
+            color: rgb(83, 60, 61);
+            cursor: pointer;
+        }
+        .contact-container input[type="submit"]:hover {
+            background-color: #1a252f;
+        }
+    </style>
+    <title>Student Portal - Contact</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="courses.html">Courses</a>
+            <a href="registered_courses.html">Registered Courses</a>
+            <a href="grades.html">Grades</a>
+            <a href="resources.html">Resources</a>
+            <a href="contact.html">Contact</a>
+            <a href="about_us.html">About</a>
+            <button class="signout-button" onclick="window.location.href='login.html';">Sign Out</button>
+        </nav>
+    </header>
+    <div class="contact-container">
+        <h1>Contact Us</h1>
+        <form action="submit_contact.php" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <input type="submit" value="Send Message">
+        </form>
+    </div>
+</body>
+</html>

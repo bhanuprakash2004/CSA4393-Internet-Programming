@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Student Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('./photo2.jpg') no-repeat center center fixed; /* Ensure the image path is correct */
+            background-color: #25a737;
+        }
+
+        header {
+            background-color: #333;
+            color: rgb(43, 230, 77);
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav {
+            margin: 10px 0;
+        }
+
+        nav a {
+            margin: 0 15px;
+            color: rgb(175, 41, 196);
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .signout-button {
+            background-color: #d3e73c;
+            color: rgb(217, 95, 28);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 15px;
+        }
+
+        .signout-button:hover {
+            background-color: #c0392b;
+        }
+
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container h1 {
+            margin-bottom: 20px;
+        }
+
+        .container p {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="courses.html">Courses</a>
+            <a href="registered_courses.html">Registered Courses</a>
+            <a href="grades.html">Grades</a>
+            <a href="resources.html">Resources</a>
+            <a href="contact.html">Contact</a>
+            <a href="about_us.html">About</a>
+            <button class="signout-button" onclick="window.location.href='login.html';">Sign Out</button>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Welcome to the Student Portal</h1>
+        <p>This is your home page. Here you can navigate to different sections of the portal, including courses, grades, and resources.</p>
+        <p>Use the navigation links above to explore the portal.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('./book.jpg') no-repeat center center fixed; /* Ensure the image path is correct */
+            background-color: #f0f1ed;
+        }
+        header {
+            width: 100%;
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #ea56f7;
+            background-color: #2c3e50;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background-color: #1a252f;
+        }
+        .content-container {
+            margin: 20px;
+            text-align: center;
+        }
+        .content-container h1 {
+            margin-bottom: 30px;
+        }
+        .signout-button {
+            background-color: #d3e73c;
+            color: rgb(217, 95, 28);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 15px;
+        }
+        .signout-button:hover {
+            background-color: #c0392b;
+        }
+        .grades-table {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        .grades-table th, .grades-table td {
+            padding: 10px;
+            border: 1px solid #8606f7;
+            text-align: left;
+        }
+        .grades-table th {
+            background-color: #4b9ae8;
+            color: rgb(246, 133, 133);
+        }
+        .grades-table td {
+            cursor: pointer;
+        }
+        .add-row-button {
+            margin: 20px 0;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .add-row-button:hover {
+            background-color: #45a049;
+        }
+        .save-button {
+            margin: 20px 0;
+            background-color: #008CBA;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .save-button:hover {
+            background-color: #007bb5;
+        }
+    </style>
+    <title>Student Portal - Grades</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="courses.html">Courses</a>
+            <a href="registered_courses.html">Registered Courses</a>
+            <a href="grades.html">Grades</a>
+            <a href="resources.html">Resources</a>
+            <a href="contact.html">Contact</a>
+            <a href="about_us.html">About</a>
+            <button class="signout-button" onclick="window.location.href='login.html';">Sign Out</button>
+        </nav>
+    </header>
+    <div class="content-container">
+        <h1>Your Grades</h1>
+        <table class="grades-table" id="gradesTable">
+            <thead>
+                <tr>
+                    <th>Course</th>
+                    <th>Grade</th>
+                    <th>Semester</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td contenteditable="true">Introduction to Computer Science</td>
+                    <td contenteditable="true">A</td>
+                    <td contenteditable="true">Spring 2024</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">Advanced Web Development</td>
+                    <td contenteditable="true">B+</td>
+                    <td contenteditable="true">Spring 2024</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">Data Science Fundamentals</td>
+                    <td contenteditable="true">A-</td>
+                    <td contenteditable="true">Fall 2023</td>
+                </tr>
+                <!-- Additional course rows can be added here -->
+                <tr>
+                    <td contenteditable="true">Machine Learning Basics</td>
+                    <td contenteditable="true">B</td>
+                    <td contenteditable="true">Fall 2023</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">Software Engineering</td>
+                    <td contenteditable="true">A</td>
+                    <td contenteditable="true">Spring 2023</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">Database Management Systems</td>
+                    <td contenteditable="true">A-</td>
+                    <td contenteditable="true">Fall 2022</td>
+                </tr>
+                <!-- End of additional course rows -->
+            </tbody>
+        </table>
+        <button class="add-row-button" onclick="addRow()">Add New Row</button>
+        <button class="save-button" onclick="saveChanges()">Save Changes</button>
+    </div>
+    <script>
+        function addRow() {
+            const table = document.getElementById('gradesTable').getElementsByTagName('tbody')[0];
+            const newRow = table.insertRow();
+            for (let i = 0; i < 3; i++) {
+                const newCell = newRow.insertCell(i);
+                newCell.contentEditable = "true";
+                newCell.innerHTML = "Edit";
+            }
+        }
+
+        function saveChanges() {
+            const table = document.getElementById('gradesTable');
+            const rows = table.rows;
+            let data = [];
+            for (let i = 1; i < rows.length; i++) {
+                const cells = rows[i].cells;
+                let row = {
+                    course: cells[0].innerText,
+                    grade: cells[1].innerText,
+                    semester: cells[2].innerText
+                };
+                data.push(row);
+            }
+            console.log("Saved Data:", data);
+            // Here you would typically send the data to your server using an AJAX request.
+        }
+    </script>
+</body>
+</html>

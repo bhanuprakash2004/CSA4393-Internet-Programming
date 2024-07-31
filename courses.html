@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('./book.jpg') no-repeat center center fixed; /* Ensure the image path is correct */
+            background-size: cover;
+            color: #333;
+        }
+        header {
+            width: 100%;
+            background-color: #2e5b88;
+            color: rgba(241, 79, 79, 0.686);
+            padding: 15px 0;
+            text-align: center;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #d05be8;
+            background-color: #2c3e50;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background-color: #1a252f;
+        }
+        .courses-container {
+            margin: 20px;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .signout-button {
+            background-color: #d3e73c;
+            color: rgb(217, 95, 28);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 15px;
+        }
+
+        .signout-button:hover {
+            background-color: #c0392b;
+        }
+        .courses-container h1 {
+            margin-bottom: 30px;
+        }
+        .course-list {
+            list-style: none;
+            padding: 0;
+        }
+        .course-item {
+            background-color: rgb(64, 206, 246);
+            margin: 10px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(45, 210, 196, 0.1);
+            max-width: 600px;
+            text-align: left;
+        }
+        .course-item h2 {
+            margin: 0;
+        }
+        .course-item p {
+            margin: 10px 0;
+        }
+        .course-item form {
+            display: flex;
+            justify-content: center;
+        }
+        .course-item input[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #2c3e50;
+            color: white;
+            cursor: pointer;
+        }
+        .course-item input[type="submit"]:hover {
+            background-color: #1a252f;
+        }
+        .success-message {
+            display: none;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #4caf50;
+            color: white;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+    <title>Student Portal - Courses</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="courses.html">Courses</a>
+            <a href="registered_courses.html">Registered Courses</a>
+            <a href="grades.html">Grades</a>
+            <a href="resources.html">Resources</a>
+            <a href="contact.html">Contact</a>
+            <a href="about_us.html">About</a>
+            <button class="signout-button" onclick="window.location.href='login.html';">Sign Out</button>
+        </nav>
+    </header>
+    <div class="courses-container">
+        <h1>Available Courses</h1>
+        <div class="success-message" id="successMessage">Course registered successfully!</div>
+        <ul class="course-list" id="courseList">
+            <!-- Courses will be dynamically added here -->
+        </ul>
+    </div>
+    <script>
+        const courses = [
+            {
+                id: 1,
+                title: 'Introduction to Computer Science',
+                description: 'Learn the basics of computer science and programming.',
+                instructor: 'Dr. Alice Smith',
+                duration: '12 weeks'
+            },
+            {
+                id: 2,
+                title: 'Advanced Web Development',
+                description: 'Dive into advanced topics in web development and design.',
+                instructor: 'Dr. John Doe',
+                duration: '8 weeks'
+            },
+            {
+                id: 3,
+                title: 'Data Science Fundamentals',
+                description: 'Understand the principles of data science and analysis.',
+                instructor: 'Dr. Emily Johnson',
+                duration: '10 weeks'
+            },
+            {
+                id: 4,
+                title: 'Machine Learning Basics',
+                description: 'An introduction to machine learning concepts and techniques.',
+                instructor: 'Dr. Michael Brown',
+                duration: '14 weeks'
+            },
+            {
+                id: 5,
+                title: 'Cybersecurity Essentials',
+                description: 'Learn the fundamentals of cybersecurity and how to protect against threats.',
+                instructor: 'Dr. Sarah Lee',
+                duration: '10 weeks'
+            },
+            {
+                id: 6,
+                title: 'Database Management Systems',
+                description: 'Understand the design, implementation, and management of databases.',
+                instructor: 'Dr. Thomas Green',
+                duration: '12 weeks'
+            },
+            {
+                id: 7,
+                title: 'Cloud Computing',
+                description: 'Explore the principles and applications of cloud computing.',
+                instructor: 'Dr. Jessica White',
+                duration: '8 weeks'
+            },
+            {
+                id: 8,
+                title: 'Artificial Intelligence',
+                description: 'Dive into the world of artificial intelligence and its applications.',
+                instructor: 'Dr. David Wilson',
+                duration: '15 weeks'
+            }
+        ];
+
+        function renderCourses() {
+            const courseList = document.getElementById('courseList');
+            courses.forEach(course => {
+                const courseItem = document.createElement('li');
+                courseItem.className = 'course-item';
+                courseItem.innerHTML = `
+                    <h2>${course.title}</h2>
+                    <p><strong>Description:</strong> ${course.description}</p>
+                    <p><strong>Instructor:</strong> ${course.instructor}</p>
+                    <p><strong>Duration:</strong> ${course.duration}</p>
+                    <form onsubmit="registerCourse(event, ${course.id})">
+                        <input type="submit" value="Register for this Course">
+                    </form>
+                `;
+                courseList.appendChild(courseItem);
+            });
+        }
+
+        function registerCourse(event, courseId) {
+            event.preventDefault();
+            const registeredCourses = JSON.parse(localStorage.getItem('registeredCourses')) || [];
+            if (!registeredCourses.includes(courseId)) {
+                registeredCourses.push(courseId);
+                localStorage.setItem('registeredCourses', JSON.stringify(registeredCourses));
+                document.getElementById('successMessage').style.display = 'block';
+                setTimeout(() => {
+                    document.getElementById('successMessage').style.display = 'none';
+                }, 3000);
+            } else {
+                alert('You are already registered for this course.');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', renderCourses);
+    </script>
+</body>
+</html>
